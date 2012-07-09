@@ -1,0 +1,20 @@
+.page-content
+  .steps
+    #step_1
+      Edit Job Post
+  = clear_tag :br
+
+  - unless @job.errors.empty?
+    .validation-failure
+      = image_tag "exclamation.png"
+      Please revise the form...
+  
+  - form_for @job, :html => {:id => "publish_form", :class => "job-form"} do |f|
+    = partial "jobs/parts/fields", :f => f
+        
+    %fieldset.actions
+      = submit_tag "Save Changes", :id => "submit"
+      or 
+      = link_to "cancel", job_url(@job)
+
+    %fieldset.hidden

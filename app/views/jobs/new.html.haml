@@ -1,0 +1,18 @@
+.page-content
+  = partial "jobs/parts/stepbar", :step => 1
+  
+  - unless @job.errors.empty?
+    .validation-failure
+      = image_tag "exclamation.png"
+      Please revise the form...
+  
+  - form_for @job, :html => {:id => "publish_form", :class => "job-form"} do |f|
+    
+    = partial "jobs/parts/fields", :f => f
+    
+        
+    %fieldset.actions
+      = submit_tag "Step 2: Verify ad", :id => "submit"
+    
+    %fieldset.hidden
+      

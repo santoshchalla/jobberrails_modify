@@ -1,0 +1,46 @@
+- job = @job unless local_assigns[:job]
+- job_applicant = JobApplicant.new_default unless local_assigns[:job_applicant]
+
+- if job and job_applicant
+
+  - if job_applicant.errors.size > 0
+    .validation-failure
+      = image_tag "exclamation.png"
+      Unfortunately, your application could not be sent. Please check the form for missing information and resubmit. 
+    = br
+  
+  - form_for((job_applicant), :url => apply_job_url(job), |
+              :html => {:method => :post, :id => "apply_online_form", |
+                        :class => "job-form", :multipart => true}) do |f| |
+
+    %table
+      %tr
+        %td= f.label :name
+        %td
+          = f.text_field :name, :size => 30, :maxlength => 50
+          = error_message_for(@job_applicant, :name)
+      %tr
+        %td= f.label :email
+        %td
+          = f.text_field :email, :size => 30, :maxlength => 50
+          = error_message_for(@job_applicant, :email)
+      %tr
+        %td{:valign => "top"}= f.label :message
+        %td= f.text_area :message, :size => "60x15"
+      %tr
+        %td{:valign => "top"}
+          %label Upload Resume/CV
+        %td
+          = f.file_field :resume
+          .suggestion
+            Max. 3 MB. Recommended formats: PDF, RTF, DOC, ODT.          
+          - if job_applicant.errors.on(:resume)
+            .error-message Please attach a resume to apply.
+      %tr
+        %td{:colspan => "2"}= nbsp;
+
+      %tr
+        %td{:colspan => "2"}
+          = submit_tag "Send my Application", :class => "submit"
+          or
+          = link_to "cancel", "#", :class => "cancel"

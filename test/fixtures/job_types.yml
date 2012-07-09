@@ -1,0 +1,7 @@
+fulltime:
+  name: Full-time
+  value: fulltime
+
+parttime:
+  name: Part-time
+  value: parttime

@@ -1,0 +1,30 @@
+!!! Strict
+%html{html_attrs}
+  %head
+    %meta{"http-equiv" => "Content-type", "content" => "text/html; charset=utf-8"}
+    
+    = title :site => AppConfig.site_name
+    = stylesheets
+    = javascripts
+    = javascript_include_tiny_mce_if_used
+    = tiny_mce if using_tiny_mce?
+  
+    = feed_links
+    
+  %body
+    #container
+      = partial "layouts/admin_header"
+      - if logged_in?
+        #categories
+          = partial "admin/categories/list"
+        - if @page
+          = partial "layouts/admin_pages_sidebar"
+
+      #content
+        = yield
+    
+    #overlay{:style => 'display:none'}
+      = image_tag("ajax-loader.gif", :alt => "Loading...")
+    #messagesContainer= render :partial => 'layouts/admin_flash_boxes'
+    #footer
+    

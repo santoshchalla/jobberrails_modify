@@ -1,0 +1,11 @@
+- unless @flash_shown
+  
+  -# Set flash[:notice] to display a notice panel
+  - if flash[:notice]
+    = flash_box(flash[:notice], :class => "notice")
+  - elsif flash[:success]
+    = flash_box(flash[:success], :class => "success")
+  - elsif flash[:error]
+    = flash_box(flash[:error], :class => "error")
+
+- @flash_shown = true

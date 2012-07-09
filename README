@@ -1,0 +1,110 @@
+== jobberRails
+
+jobberRails is a conversion of the excellent open source php web app, JobberBase, to Rails.
+
+www.jobberrails.com
+
+
+== Current Version
+v0.4
+
+Working:
+- Job Posting
+- Categories
+- Search
+- Feeds
+- Apply Now
+- Ideal Job Form
+- Admin Tools
+- Email Verification
+
+TODO: 
+- Bug fixes
+
+
+v1.0 will include all the functionality that currently exists in JobberBase
+
+v2.0 will include additional functionality not currently in JobberBase
+
+If you're interested in JobberRails 2.0, go here to recommend features for us to implement:
+http://jobberrails.crowdsound.com/widgets/content?aid=234
+
+
+== Install Instructions
+
+1) Set up Database (database.yml)
+
+2) Run rake gems:install db:create db:schema:load db:migrate
+
+3) Start server
+
+
+== Email Support
+
+If you have bugs or problems, let us know on the google group http://groups.google.com/group/jobberrails
+
+If we get enough bug tickets, I'll create a lighthouse project. Until then, email should work fine.
+
+
+== Hosted Version
+
+The latest version is currently running on a MorphExchange developer account here:
+http://jobberrails.morphexchange.com
+
+== Help
+
+If you want to help improve JobberRails, fork the code on github and start making changes & converting features. 
+I'll be extremely happy to merge your changes back in and give you credit for your work in the changelog.
+
+Please make sure to use spaces (no tabs), and an indent width of 2.
+
+
+== Maintainers
+
+--
+Jacques Crocker
+railsjedi@gmail.com
+www.railsjedi.com
+
+Initial project creation
+
+-- 
+Tyler Crocker
+neorails@gmail.com
+www.neorails.com
+
+Search, RSS
+
+--
+Szymon Włodarski
+github.com/wlodars
+
+Admin Pages and Login
+
+--
+Ivan Acosta-Rubio
+http://www.bakedweb.net
+
+Email Integration Support
+
+--
+
+Rate and comment on this project OpenSourceRails
+http://www.opensourcerails.com/projects/80
+
+
+== Technologies Used
+
+Haml / Sass (html and css)
+JQuery (javascript framework)
+AttachmentFu (Rails Plugin)
+BetterPartials (Rails Plugin)
+BackgroundJob (Rails Plugin)
+SeedFu (Rails Plugin)
+AppConfig (Rails Plugin)
+
+
+== Credits
+
+All credit for this app goes to the fine folks over at JobberBase who put together the slick looking interface for 
+a vertical job board. See them at www.jobberbase.com

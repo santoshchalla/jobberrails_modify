@@ -1,0 +1,5 @@
+page.insert_html :bottom, 'categoriesContainer', :partial => 'admin/categories/category'
+page.sortable  "categoriesContainer", sortable_categories_container_options
+@category = nil
+page.replace_html "categories", :partial => 'admin/categories/list'
+page.display_notice
